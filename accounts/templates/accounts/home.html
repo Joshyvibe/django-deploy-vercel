@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Welcome to Your Home Page</h2>
+        <p>This is the home page content. You can add more content here.</p>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Signup</a>
+        {% endif %}
+    </div>
+
+</body>
+</html>
